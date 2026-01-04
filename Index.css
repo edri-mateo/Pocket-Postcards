@@ -1,0 +1,173 @@
+/* NOTE: @import is only for Google Fonts and other web fonts URLs, not for local fonts */
+/* Fonts come in different type of formats like otf, ttf, wwoff. They're like how images can be in png, jpeg, formats */
+@font-face{
+    font-family: 'Pixel Game';
+    src: url('Fonts/pixel-game/Pixel Game.otf') format('opentype'); /* otf: opentype font */
+}
+@font-face{
+    font-family: 'Pixel Game Extrude';
+    src: url('Fonts/pixel-game/Pixel Game Extrude.otf') format('opentype'); 
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color :rgb(255, 255, 255);
+    background-repeat: no-repeat; 
+    /*overflow: hidden;*/
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;       
+    height: 100vh; /* full viewport height */;
+    width: 100vw; /* full viewport width */
+}
+
+.textHeader{
+    position: relative; /* non-static parent position for h1 and h2 */
+    display: flex;
+    justify-content: center;
+    align-items: center;       
+    height: 100vh; /* full viewport height */;
+    width: 100vw; /* full viewport width */
+    
+}
+
+h2{
+    /* placement */
+    
+    z-index: 1;
+
+    /* styling */
+    font-family: 'Pixel Game Extrude', sans-serif;
+    color: #1b3a6c;
+    font-size: clamp(100px, 15vw, 150px); /* scales with screen size */
+    font-weight: normal; /* boldness of text (but in this case we just wanted to make the font clear */
+    text-align: center;
+}
+
+h1{
+    /* placement */
+    position: absolute;
+    top: 20%;
+    z-index: 2;
+
+    /* styling */
+    font-family: 'Pixel Game', sans-serif;
+    color: #f8f7ec;
+    font-size: clamp(100px, 15vw, 150px); /* scales with screen size: 1.smallest size it can shrink to, 2.the ideal size based on vw, 3.largest size it can grow to */
+    font-weight: normal; /* boldness of text (but in this case we just wanted to make the font clear */
+    text-align: center;
+}
+
+
+
+#startDisplay{
+    /* placement */
+    position: absolute; /* want to tkae this out of the flow bc the boxes take up space */ 
+    top: 50%;
+    left: 40%;
+    z-index: 1;
+
+    /* styling */
+    width: 200px;
+    height: 110px;
+}
+
+#startButton{
+    /* placement */
+    position: absolute; /* want to tkae this out of the flow bc the boxes take up space */  
+    top: 50%;
+    left: 40%;
+    z-index: 2;
+
+    /* styling */
+    width: 200px;
+    height: 110px;
+}
+
+
+/* --- BOXES --- */
+
+.blueBox1{
+    /* placement */
+    display: flex;
+    flex-direction: column; 
+    /* this is the default origin point */     
+    top: 0%;   
+    left: 0%;
+
+    /* styling */
+    gap: 30px;
+}
+.blueBox{
+    /* styling */
+    background-color: #b8e7f5;
+    width: 30px;
+    height: 30px;
+}
+
+.blueBox2{
+    /* placement */
+    position: absolute;
+    display: flex;  
+    flex-direction: column;   
+    /* need to specify the origin point */   
+    top: 0%;   
+    right: 0px;
+
+    /* styling */
+    gap: 30px;
+}
+.blueBox3{
+    /* placement */
+    position: absolute;
+    display: flex;  
+    flex-direction: row;   
+    /* need to specify the origin point */   
+    top: 0%;   
+    right: 0%;
+
+    /* styling */
+    gap: 30px;
+}
+
+.redBox1{
+    /* placement */
+    position: absolute; /* need the red boxes to be absolute so they can be below the blue boxes */
+    display: flex;
+    flex-direction: column; 
+    /* need to specify the origin point */     
+    top: 30px; 
+    left: 0%;
+
+    /* styling */
+    gap: 30px;
+}
+.firstRedBox{
+    /* styling */
+    background-color: #f98e8e;
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/* FLEXBOX: flexbox allows elements to be arranged easier */
+         /* the default is -----------> flex-direction: (this is where the main axis is. like in how a website everything is stacked from top to bottom) */
+         /* but we can also do -------> flex-direction: row; */
+/* HOWEVER, if we do display: flex;
+         /* the default is -----------> flex-direction: row; (this is now where the main axis is)
+
+/* JUSTIFY-CONTENT: 
+
+/* FLOW: the default placement of elements without repositioning (from top to bottom in HTML order) */
+      /* Static Box: ignores top, left, bottom, right, and z-index (will follow default flow, an element can only nudge slightly because it can take up another element's space) */
+      /* Relative Box: can use top, left, bottom, right, z-index (still in flow, and moving one element will move the rest IF you dont change the z-index) */
+      /* Absolute Box: sits inside its parent exactly at top-right. */
+      /* Fixed Box → stays on the bottom-right corner even when you scroll. */
+      /* Sticky Box → scrolls with the page until it reaches the top, then sticks. */
